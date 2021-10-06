@@ -1,10 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, IconButton, Button, TextField } from '@mui/material';
 import { InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Gradient } from '@mui/icons-material';
+import { Link as MUILink } from '@mui/material';
 
 const theme = createTheme({
     typography: {
@@ -70,32 +71,44 @@ function Header(){
                         <Box sx={{display: 'flex', mt: 2, alignContent: 'space-evenly'}}>
                             <Box mr={3}>
                                 <Typography variant="h6" component="div" color="common.black">
-                                    FOOD
+                                <Link href="/food" passHref>
+                                    <MUILink color="inherit" underline="hover">FOOD</MUILink>
+                                </Link>
                                 </Typography>
                             </Box>
                             <Box mr={3}>
                                 <Typography variant="h6" component="div" color="common.black">
-                                    CLOTHING
+                                <Link href="/clothing" passHref>
+                                <MUILink color="inherit" underline="hover">CLOTHING</MUILink>
+                                </Link>
                                 </Typography>
                             </Box>
                             <Box mr={3}>
                                 <Typography variant="h6" component="div" color="common.black">
-                                    HEALTH
+                                    <Link href="/health" passHref>
+                                    <MUILink color="inherit" underline="hover">HEALTH</MUILink>
+                                    </Link>
                                 </Typography>
                             </Box>
                             <Box mr={3}>
                                 <Typography variant="h6" component="div" color="common.black">
-                                    HOME LIVING
+                                    <Link href="/home-living" passHref>
+                                    <MUILink color="inherit" underline="hover">HOME LIVING</MUILink>
+                                    </Link>
                                 </Typography>
                             </Box>
                             <Box mr={3}>
                                 <Typography variant="h6" component="div" color="common.black">
-                                    SERVICES
+                                    <Link href="/services" passHref>
+                                    <MUILink color="inherit" underline="hover">SERVICES</MUILink>
+                                    </Link>
                                 </Typography>
                             </Box>
                             <Box mr={3}>
                                 <Typography variant="h6" component="div" color="common.black">
-                                    SHOPS DIRECTORY
+                                    <Link href="/shops" passHref>
+                                    <MUILink color="inherit" underline="hover">SHOPS DIRECTORY</MUILink>
+                                    </Link>
                                 </Typography>
                             </Box>
                         </Box>
