@@ -29,7 +29,7 @@ function Footer(){
     return(
         <ThemeProvider theme={theme}>
             <Box>
-                <AppBar sx={{ top: 'auto', bottom: 30, background: '#FFFFFF',}} elevation={0}>
+                <AppBar position="relative" sx={{top: 'auto', bottom: 20, paddingTop: 5,background: '#FFFFFF',}} elevation={0}>
                     <Toolbar>
                         <IconButton 
                             size="large"

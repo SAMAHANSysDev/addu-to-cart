@@ -28,7 +28,9 @@ function Header(){
         <ThemeProvider theme={theme}>
         <Box sx={{ flexGrow: 1}}>
             <AppBar position="static" style={{background: '#FFFFFF'}} elevation={0}>
+                
                 <Toolbar>
+                    <Link href="/" passHref>
                     <IconButton 
                         size="large"
                         edge="start"
@@ -38,6 +40,7 @@ function Header(){
                     >
                         <Image src="/logo.png" alt="logo" width="96px" height="124px" layout="intrinsic"/>
                     </IconButton>
+                    </Link>
                     <Box sx={{ ml: 3, flexGrow: 2}}>
                         <Box sx={{mr: 20}}>
                             <TextField

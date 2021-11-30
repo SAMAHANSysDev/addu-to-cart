@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import SeeMoreButton from '../components/customized-button';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
@@ -40,7 +41,7 @@ const theme = createTheme({
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{marginTop: 2}}>
+      <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
         <Box 
           sx={{
             margin: "auto", 
@@ -56,7 +57,217 @@ export default function Home() {
               }}>
               <Typography variant="h1" color="common.white">11.11 SALE!</Typography>
               <Typography variant="h5" color="common.white">COMING SOON (PUBMATS HERE)</Typography>
+              <div className="poster-boy">
+                <Image src="/promo-boy.png" width="281px" height="281px" alt="promo-boy"></Image>
+              </div>
             </Box>
+        </Box>
+        <Box
+          sx={{
+            margin: "auto",
+            marginTop: 2,
+            width: "80%"
+          }}>
+          <Box>
+              <Typography 
+                variant="h2" 
+                sx={{
+                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+                  WebkitBackgroundClip: "text",
+                  paddingY: 3,
+                  letterSpacing: 2,
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+              FOOD
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="flex-end" marginTop={3}>
+                <SeeMoreButton/>
+              </Grid>
+          </Box>
+          <Box>
+              <Typography 
+                variant="h2" 
+                sx={{
+                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+                  WebkitBackgroundClip: "text",
+                  paddingY: 3,
+                  letterSpacing: 2,
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+              CLOTHING
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="flex-end" marginTop={3} >
+                <SeeMoreButton/>
+              </Grid>
+          </Box>
+          <Box>
+              <Typography 
+                variant="h2" 
+                sx={{
+                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+                  WebkitBackgroundClip: "text",
+                  paddingY: 3,
+                  letterSpacing: 2,
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+              HEALTH
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
+                <SeeMoreButton/>
+              </Grid>
+          </Box>
+          <Box>
+              <Typography 
+                variant="h2" 
+                sx={{
+                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+                  WebkitBackgroundClip: "text",
+                  paddingY: 3,
+                  letterSpacing: 2,
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+              HOME LIVING
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
+                <SeeMoreButton/>
+              </Grid>
+          </Box>
+          <Box>
+              <Typography 
+                variant="h2" 
+                sx={{
+                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+                  WebkitBackgroundClip: "text",
+                  paddingY: 3,
+                  letterSpacing: 2,
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+              SERVICES
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 300, width: 185}}>Hello!</Paper>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
+                <SeeMoreButton/>
+              </Grid>
+          </Box>
         </Box>
       </Box>
     </ThemeProvider>

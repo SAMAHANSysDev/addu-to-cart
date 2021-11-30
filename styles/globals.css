@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.poster-boy {
+  position: absolute;
+  z-index: 1;
+  top: 350px;
+  left: 1550px;
+}

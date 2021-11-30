@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <Header/>
-      <Component {...pageProps} />
+      <main><Component {...pageProps} /></main>
       <Footer/>
     </React.Fragment>
   )
