@@ -1,11 +1,100 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import LoadMoreButton from '../components/load-more-button';
 import styles from '../styles/Home.module.css'
+import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
+import React from 'react';
 
-export default function Health() {
+const theme = createTheme({
+  typography: {
+      fontFamily: [
+          'Poppins'
+      ].join(','),
+      h1: {
+          fontWeight: 800,
+          fontSize: 64,
+      },
+      h2: {
+          fontWeight: 800,
+          fontSize: 48,
+      },
+      h3: {
+          fontWeight: 700,
+          fontSize: 28,
+      },
+      h4: {
+        fontWeight: 500,
+        fontSize: 24,
+      },
+      h5_bold: {
+          fontWeight: 500,
+          fontSize: 18,
+      },
+      h5: {
+          fontWeight: 400,
+          fontSize: 18,
+      }
+  },
+});
+
+export default function Food() {
   return (
-    <div>
-        This is health.
-    </div>
+    <ThemeProvider theme={theme}>
+      <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
+        <Box sx={{margin: "auto", marginTop: 2, width: "80%"}}>
+          <Box>
+              <Typography 
+                variant="h2" 
+                sx={{
+                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+                  WebkitBackgroundClip: "text",
+                  paddingY: 3,
+                  letterSpacing: 2,
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+              HEALTH
+              </Typography>
+              <Grid container spacing={3} sx={{margin: "auto"}}>
+                {/*Add map function later*/}
+                <Grid item> 
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+                <Grid item>
+                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                </Grid>
+              </Grid>
+              <Grid container justifyContent="center" marginY={4}>
+                <LoadMoreButton/>
+              </Grid>
+          </Box>
+        </Box>
+      </Box>
+    </ThemeProvider>
   )
 }
