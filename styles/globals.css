@@ -17,7 +17,6 @@ a {
 
 .poster-boy {
   position: absolute;
-  z-index: 1;
-  top: 350px;
-  left: 1550px;
+  z-index: 2;
+  right: -110px;
 }
