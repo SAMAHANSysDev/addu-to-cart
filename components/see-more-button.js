@@ -1,6 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import { Button, Typography } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles'
+import { PinDropSharp } from '@mui/icons-material';
 
 const GradientButton = styled(Button)(({theme}) =>({
     background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
@@ -11,10 +13,12 @@ const GradientButton = styled(Button)(({theme}) =>({
 }))
 
 
-export default function SeeMoreButton(){
+export default function SeeMoreButton(props){
     return(
-        <GradientButton variant="contained">
-            <Typography variant="h5">SEE MORE</Typography>
-        </GradientButton>
+        <Link href={props.href}>
+            <GradientButton variant="contained">
+                <Typography variant="h5">SEE MORE</Typography>
+            </GradientButton>
+        </Link>
     )
 }

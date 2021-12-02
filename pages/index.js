@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link';
 import SeeMoreButton from '../components/see-more-button';
 import GradientHeader from '../components/gradient-headline';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
+import ItemCard from '../components/item-card';
 import React from 'react';
 
 const theme = createTheme({
@@ -74,23 +76,23 @@ export default function Home() {
               <GradientHeader variant="h2" text="FOOD"/>
               <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
               </Grid>
               <Grid container justifyContent="flex-end" marginTop={3}>
-                <SeeMoreButton/>
+                <SeeMoreButton href="/food"/>
               </Grid>
           </Box>
           <Box>
@@ -113,7 +115,7 @@ export default function Home() {
                 </Grid>
               </Grid>
               <Grid container justifyContent="flex-end" marginTop={3} >
-                <SeeMoreButton/>
+                <SeeMoreButton href="/clothing"/>
               </Grid>
           </Box>
           <Box>
@@ -136,7 +138,7 @@ export default function Home() {
                 </Grid>
               </Grid>
               <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
-                <SeeMoreButton/>
+                <SeeMoreButton href="/health"/>
               </Grid>
           </Box>
           <Box>
@@ -159,7 +161,7 @@ export default function Home() {
                 </Grid>
               </Grid>
               <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
-                <SeeMoreButton/>
+                <SeeMoreButton href="/home-living"/>
               </Grid>
           </Box>
           <Box>
@@ -182,7 +184,7 @@ export default function Home() {
                 </Grid>
               </Grid>
               <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
-                <SeeMoreButton/>
+                <SeeMoreButton href="/services"/>
               </Grid>
           </Box>
         </Box>

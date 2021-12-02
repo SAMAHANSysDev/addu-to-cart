@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import LoadMoreButton from '../components/load-more-button';
@@ -6,7 +7,7 @@ import GradButton from '../components/gradient-button';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { Avatar, Box, Typography, Grid, Paper, CardHeader } from '@mui/material';
-import React from 'react';
+import ItemCard from '../components/item-card';
 
 const theme = createTheme({
   typography: {
@@ -108,19 +109,19 @@ export default function Item() {
               <Grid container spacing={3} sx={{margin: "auto"}} justifyContent="center">
                 {/*Add map function later*/}
                 <Grid item> 
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
                 <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
+                  <ItemCard/>
                 </Grid>
               </Grid>
               <Grid container justifyContent="center" marginY={4}>
