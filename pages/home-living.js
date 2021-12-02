@@ -47,7 +47,7 @@ export default function Food() {
         <Box sx={{margin: "auto", marginTop: 2, width: "80%"}}>
           <Box>
               <GradientHeader variant="h2" text="HOME LIVING"/>
-              <Grid container spacing={3} sx={{margin: "auto"}}>
+              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 {/*Add map function later*/}
                 <Grid item> 
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>

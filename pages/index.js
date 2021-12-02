@@ -72,7 +72,7 @@ export default function Home() {
           }}>
           <Box>
               <GradientHeader variant="h2" text="FOOD"/>
-              <Grid container spacing={3} sx={{margin: "auto"}}>
+              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
                 </Grid>
@@ -95,7 +95,7 @@ export default function Home() {
           </Box>
           <Box>
               <GradientHeader variant="h2" text="CLOTHING"/>
-              <Grid container spacing={3} sx={{margin: "auto"}}>
+              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
                 </Grid>
@@ -118,7 +118,7 @@ export default function Home() {
           </Box>
           <Box>
               <GradientHeader variant="h2" text="HEALTH"/>
-              <Grid container spacing={3} sx={{margin: "auto"}}>
+              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
                 </Grid>
@@ -141,7 +141,7 @@ export default function Home() {
           </Box>
           <Box>
               <GradientHeader variant="h2" text="HOME LIVING"/>
-              <Grid container spacing={3} sx={{margin: "auto"}}>
+              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
                 </Grid>
@@ -164,7 +164,7 @@ export default function Home() {
           </Box>
           <Box>
               <GradientHeader variant="h2" text="SERVICES"/>
-              <Grid container spacing={3} sx={{margin: "auto"}}>
+              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
                 </Grid>
