@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import SeeMoreButton from '../components/customized-button';
+import SeeMoreButton from '../components/see-more-button';
+import GradientHeader from '../components/gradient-headline';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
@@ -70,18 +71,7 @@ export default function Home() {
             width: "80%"
           }}>
           <Box>
-              <Typography 
-                variant="h2" 
-                sx={{
-                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
-                  WebkitBackgroundClip: "text",
-                  paddingY: 3,
-                  letterSpacing: 2,
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-              FOOD
-              </Typography>
+              <GradientHeader variant="h2" text="FOOD"/>
               <Grid container spacing={3} sx={{margin: "auto"}}>
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
@@ -104,18 +94,7 @@ export default function Home() {
               </Grid>
           </Box>
           <Box>
-              <Typography 
-                variant="h2" 
-                sx={{
-                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
-                  WebkitBackgroundClip: "text",
-                  paddingY: 3,
-                  letterSpacing: 2,
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-              CLOTHING
-              </Typography>
+              <GradientHeader variant="h2" text="CLOTHING"/>
               <Grid container spacing={3} sx={{margin: "auto"}}>
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
@@ -138,18 +117,7 @@ export default function Home() {
               </Grid>
           </Box>
           <Box>
-              <Typography 
-                variant="h2" 
-                sx={{
-                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
-                  WebkitBackgroundClip: "text",
-                  paddingY: 3,
-                  letterSpacing: 2,
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-              HEALTH
-              </Typography>
+              <GradientHeader variant="h2" text="HEALTH"/>
               <Grid container spacing={3} sx={{margin: "auto"}}>
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
@@ -172,18 +140,7 @@ export default function Home() {
               </Grid>
           </Box>
           <Box>
-              <Typography 
-                variant="h2" 
-                sx={{
-                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
-                  WebkitBackgroundClip: "text",
-                  paddingY: 3,
-                  letterSpacing: 2,
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-              HOME LIVING
-              </Typography>
+              <GradientHeader variant="h2" text="HOME LIVING"/>
               <Grid container spacing={3} sx={{margin: "auto"}}>
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
@@ -206,18 +163,7 @@ export default function Home() {
               </Grid>
           </Box>
           <Box>
-              <Typography 
-                variant="h2" 
-                sx={{
-                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
-                  WebkitBackgroundClip: "text",
-                  paddingY: 3,
-                  letterSpacing: 2,
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-              SERVICES
-              </Typography>
+              <GradientHeader variant="h2" text="SERVICES"/>
               <Grid container spacing={3} sx={{margin: "auto"}}>
                 <Grid item>
                   <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>

@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import LoadMoreButton from '../components/load-more-button';
+import GradientHeader from '../components/gradient-headline';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
 import React from 'react';
+import { Gradient } from '@mui/icons-material';
 
 const theme = createTheme({
   typography: {
@@ -44,18 +46,7 @@ export default function Food() {
       <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
         <Box sx={{margin: "auto", marginTop: 2, width: "80%"}}>
           <Box>
-              <Typography 
-                variant="h2" 
-                sx={{
-                  background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
-                  WebkitBackgroundClip: "text",
-                  paddingY: 3,
-                  letterSpacing: 2,
-                  WebkitTextFillColor: "transparent"
-                }}
-              >
-              HOME LIVING
-              </Typography>
+              <GradientHeader variant="h2" text="HOME LIVING"/>
               <Grid container spacing={3} sx={{margin: "auto"}}>
                 {/*Add map function later*/}
                 <Grid item> 
