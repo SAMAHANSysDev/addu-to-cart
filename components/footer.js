@@ -2,8 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { AppBar, Toolbar, Box, Typography, IconButton, Button, TextField } from '@mui/material';
+import { AppBar, Toolbar, Container, Box, Typography, Grid, IconButton} from '@mui/material';
 import { Link as MUILink } from '@mui/material';
+import Logo from '../public/logo.png'
 
 const theme = createTheme({
     typography: {
@@ -28,55 +29,85 @@ const theme = createTheme({
 function Footer(){
     return(
         <ThemeProvider theme={theme}>
-            <Box>
-                <AppBar position="relative" sx={{top: 'auto', bottom: 20, paddingTop: 5,background: '#FFFFFF',}} elevation={0}>
-                    <Toolbar>
-                        <IconButton 
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ ml: 20, mb: 5}}
-                        >
-                            <Image src="/logo.png" alt="logo" width="96px" height="124px" layout="intrinsic"/>
-                        </IconButton>
-                        <Box sx={{mx: 5, flexGrow: 2, mb: 6}}>
-                            <Box sx={{display: 'flex', alignContent: 'space-evenly'}}>
-                                <Box sx={{display: 'flex', flexDirection: 'column', alignContent: 'space-between', flexGrow: 1}}>
-                                    <Typography variant="h5" color="common.black" sx={{mb: 2}}>Explore</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Home</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Videos</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>FB Live</Typography>
-                                </Box>
-                                <Box sx={{display: 'flex', flexDirection: 'column', alignContent: 'space-between', flexGrow: 1}}>
-                                    <Typography variant="h5" color="common.black" sx={{mb: 2}}>Shop</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Food</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Clothing</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Health</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Home Living</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Services</Typography>
-                                </Box>
-                                <Box sx={{display: 'flex', flexDirection: 'column', alignContent: 'space-between', flexGrow: 1}}>
-                                    <Typography variant="h5" color="common.black" sx={{mb: 2}}>Info</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>About Us</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>FAQs</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Policies</Typography>
-                                </Box>
-                                <Box sx={{display: 'flex', flexDirection: 'column', alignContent: 'space-between', flexGrow: 1}}>
-                                    <Typography variant="h5" color="common.black" sx={{mb: 2}}>Connect</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Facebook</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Twitter</Typography>
-                                    <Typography variant="h6_bold" color="common.black" sx={{mb: 1}}>Instagram</Typography>
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Toolbar>
-                    <Box sx={{margin: 'auto'}}>
-                        <Typography variant="h6" component="div" color="common.black">Copyright 2021 SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development</Typography>
-                    </Box>
-                </AppBar>
-                
+        <Box sx={{padding: 5, flexGrow: 1}}>
+            <Grid container spacing={1} columns={{md: 16}} justifyContent="center">
+                <Grid item md={4} justifyContent="center">
+                    <IconButton 
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                    >
+                        <Image src={Logo} alt="logo"/>
+                    </IconButton>
+                </Grid>
+                <Grid item md={2}>
+                    <Grid item>
+                        <Typography variant="h5" color="common.black">Explore</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Home</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Videos</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">FB Live</Typography>
+                    </Grid>
+                </Grid>
+                <Grid item md={2}>
+                    <Grid item>
+                        <Typography variant="h5" color="common.black">Shops</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Food</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Clothing</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Health</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Home Living</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Services</Typography>
+                    </Grid>
+                </Grid>
+                <Grid item md={2}>
+                    <Grid item>
+                        <Typography variant="h5" color="common.black">Info</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">About Us</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">FAQs</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Policies</Typography>
+                    </Grid>
+                </Grid>
+                <Grid item md={2}>
+                    <Grid item>
+                        <Typography variant="h5" color="common.black">Connect</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Facebook</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Twitter</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6_bold" color="common.black">Instagram</Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Box sx={{margin: 'auto', textAlign: 'center', marginTop: 5}}>
+                <Typography variant="h6" component="div" color="common.black">Copyright 2021 SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development</Typography>
             </Box>
+        </Box>
         </ThemeProvider>
     )
 }

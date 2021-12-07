@@ -17,6 +17,10 @@ a {
 
 .poster-boy {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   right: -110px;
+}
+
+@media (max-width: 767px){
+  .poster-boy {display: none;}
 }

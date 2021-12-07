@@ -5,9 +5,10 @@ import SeeMoreButton from '../components/see-more-button';
 import GradientHeader from '../components/gradient-headline';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
+import { Container, Box, Typography, Grid, Paper, IconButton, Button} from '@mui/material';
 import ItemCard from '../components/item-card';
 import React from 'react';
+import PosterBoy from '../public/promo-boy.png'
 
 const theme = createTheme({
   typography: {
@@ -44,7 +45,7 @@ const theme = createTheme({
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
+      <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5", width: "100%"}}>
         <Box 
           sx={{
             margin: "auto",
@@ -62,7 +63,7 @@ export default function Home() {
               <Typography variant="h1" color="common.white">11.11 SALE!</Typography>
               <Typography variant="h5" color="common.white">COMING SOON (PUBMATS HERE)</Typography>
               <div className="poster-boy">
-                <Image src="/promo-boy.png" width="281px" height="281px" alt="promo-boy"></Image>
+                <Image src={PosterBoy} alt="promo-boy" layout="intrinsic"/>
               </div>
             </Box>
         </Box>
