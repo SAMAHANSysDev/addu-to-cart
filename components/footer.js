@@ -6,7 +6,7 @@ import { AppBar, Toolbar, Container, Box, Typography, Grid, IconButton} from '@m
 import { Link as MUILink } from '@mui/material';
 import Logo from '../public/logo.png'
 
-const theme = createTheme({
+let theme = createTheme({
     typography: {
         fontFamily: [
             'Poppins'
@@ -26,6 +26,8 @@ const theme = createTheme({
     },
 });
 
+theme = responsiveFontSizes(theme)
+
 function Footer(){
     return(
         <ThemeProvider theme={theme}>
@@ -41,66 +43,68 @@ function Footer(){
                         <Image src={Logo} alt="logo"/>
                     </IconButton>
                 </Grid>
-                <Grid item md={2}>
-                    <Grid item>
-                        <Typography variant="h5" color="common.black">Explore</Typography>
+                <Grid container item md={12} justifyContent="center" spacing={2}>
+                    <Grid item md={3}>
+                        <Grid item>
+                            <Typography variant="h5" color="common.black">Explore</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Home</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Videos</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">FB Live</Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Home</Typography>
+                    <Grid item md={3}>
+                        <Grid item>
+                            <Typography variant="h5" color="common.black">Shops</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Food</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Clothing</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Health</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Home Living</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Services</Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Videos</Typography>
+                    <Grid item md={3}>
+                        <Grid item>
+                            <Typography variant="h5" color="common.black">Info</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">About Us</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">FAQs</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Policies</Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">FB Live</Typography>
-                    </Grid>
-                </Grid>
-                <Grid item md={2}>
-                    <Grid item>
-                        <Typography variant="h5" color="common.black">Shops</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Food</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Clothing</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Health</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Home Living</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Services</Typography>
-                    </Grid>
-                </Grid>
-                <Grid item md={2}>
-                    <Grid item>
-                        <Typography variant="h5" color="common.black">Info</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">About Us</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">FAQs</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Policies</Typography>
-                    </Grid>
-                </Grid>
-                <Grid item md={2}>
-                    <Grid item>
-                        <Typography variant="h5" color="common.black">Connect</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Facebook</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Twitter</Typography>
-                    </Grid>
-                    <Grid item>
-                        <Typography variant="h6_bold" color="common.black">Instagram</Typography>
+                    <Grid item md={3}>
+                        <Grid item>
+                            <Typography variant="h5" color="common.black">Connect</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Facebook</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Twitter</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Typography variant="h6_bold" color="common.black">Instagram</Typography>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

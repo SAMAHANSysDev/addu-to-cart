@@ -10,7 +10,7 @@ import ItemCard from '../components/item-card';
 import React from 'react';
 import PosterBoy from '../public/promo-boy.png'
 
-const theme = createTheme({
+let theme = createTheme({
   typography: {
       fontFamily: [
           'Poppins'
@@ -41,6 +41,8 @@ const theme = createTheme({
       }
   },
 });
+
+theme = responsiveFontSizes(theme);
 
 export default function Home() {
   return (
