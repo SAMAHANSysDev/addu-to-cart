@@ -6,7 +6,7 @@ import GradientHeader from '../components/gradient-headline';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { Container, Box, Typography, Grid, Paper, IconButton, Button} from '@mui/material';
-import ItemCard from '../components/item-card';
+import SearchCard from '../components/search-card';
 import { useRouter } from 'next/router';
 
 let theme = createTheme({
@@ -60,19 +60,19 @@ export default function Search(){
                         <GradientHeader variant="h2" text="FOOD"/>
                         <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
                             <Grid item>
-                            <ItemCard/>
+                            <SearchCard/>
                             </Grid>
                             <Grid item>
-                            <ItemCard/>
+                            <SearchCard/>
                             </Grid>
                             <Grid item>
-                            <ItemCard/>
+                            <SearchCard/>
                             </Grid>
                             <Grid item>
-                            <ItemCard/>
+                            <SearchCard/>
                             </Grid>
                             <Grid item>
-                            <ItemCard/>
+                            <SearchCard/>
                             </Grid>
                         </Grid>
                     </Box>

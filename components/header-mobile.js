@@ -12,7 +12,7 @@ import NavDrawer from './nav-drawer';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const theme = createTheme({
+let theme = createTheme({
     typography: {
         fontFamily: [
             'Poppins'
@@ -27,7 +27,7 @@ const theme = createTheme({
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: 20,
-    backgroundColor: alpha(theme.palette.common.black, 0.10),
+    backgroundColor: alpha(theme.palette.common.black, 0.05),
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('lg')]:{
@@ -64,9 +64,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-const handleSearch = () => {
-
-}
+theme = responsiveFontSizes(theme)
 
 export default function MobileHeader(){
     const router = useRouter();
@@ -91,7 +89,7 @@ export default function MobileHeader(){
                             <SearchIcon sx={{color: '#FF8A25'}} />
                         </SearchIconWrapper>
                             <StyledInputBase
-                            placeholder="Search for items…"
+                            placeholder="Search for products…"
                             inputProps={{ 'aria-label': 'search'}}
                             onChange={(e) => setSearch(e.target.value)}
                             onKeyDown={(e) => {
