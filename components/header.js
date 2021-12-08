@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/dist/client/router';
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, IconButton, Button, TextField, useMediaQuery } from '@mui/material';
 import { InputAdornment } from '@mui/material';
@@ -21,11 +22,9 @@ const theme = createTheme({
     },
 });
 
-const handleSearch = () => {
-
-}
-
 function Header(){
+    const router = useRouter()
+    const [search, setSearch] = useState('');
     const isMobile = useMediaQuery(theme.breakpoints.down("lg"))
     if (!isMobile){
         return(
@@ -47,6 +46,15 @@ function Header(){
                             <Box sx={{mr: 20}}>
                                 <TextField
                                 label="Search for products.."
+                                onChange={(e) => setSearch(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if(e.key === "Enter"){
+                                        router.push({
+                                                pathname: '/search',
+                                                query: {query: search}
+                                            })
+                                    }
+                                }}
                                 variant="filled"
                                 InputLabelProps={{
                                     style: {color: '#FF8A25'}
@@ -58,11 +66,16 @@ function Header(){
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label="search"
-                                                onClick={handleSearch}
                                                 style={{
                                                     marginRight: 5,
                                                     }}
                                                 edge="end"
+                                                onClick={() => {
+                                                    router.push({
+                                                        pathname: '/search',
+                                                        query: {query: search}
+                                                    })
+                                                }}
                                             >
                                                 <SearchIcon style={{color: '#FF8A25'}}/>
                                             </IconButton>

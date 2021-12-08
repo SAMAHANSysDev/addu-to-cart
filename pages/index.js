@@ -5,7 +5,7 @@ import SeeMoreButton from '../components/see-more-button';
 import GradientHeader from '../components/gradient-headline';
 import styles from '../styles/Home.module.css'
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { Container, Box, Typography, Grid, Paper, IconButton, Button} from '@mui/material';
+import { Box, Typography, Grid, Paper } from '@mui/material';
 import ItemCard from '../components/item-card';
 import React from 'react';
 import PosterBoy from '../public/promo-boy.png'

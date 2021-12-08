@@ -9,6 +9,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Link as MUILink } from '@mui/material';
 import Logo from '../public/logo.png';
 import NavDrawer from './nav-drawer';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const theme = createTheme({
     typography: {
@@ -67,6 +69,8 @@ const handleSearch = () => {
 }
 
 export default function MobileHeader(){
+    const router = useRouter();
+    const [search, setSearch] = useState('');
     return(
         <ThemeProvider theme={theme}>
             <Box sx={{flexGrow: 1}}>
@@ -87,8 +91,17 @@ export default function MobileHeader(){
                             <SearchIcon sx={{color: '#FF8A25'}} />
                         </SearchIconWrapper>
                             <StyledInputBase
-                            placeholder="Search…"
+                            placeholder="Search for items…"
                             inputProps={{ 'aria-label': 'search'}}
+                            onChange={(e) => setSearch(e.target.value)}
+                            onKeyDown={(e) => {
+                                if(e.key === "Enter"){
+                                    router.push({
+                                            pathname: '/search',
+                                            query: {query: search}
+                                        })
+                                }
+                            }}
                             />
                     </Search>
                 </Toolbar>
