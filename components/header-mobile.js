@@ -2,11 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { AppBar, Toolbar, Drawer, InputBase, Box, Typography, IconButton, Button, TextField } from '@mui/material';
-import { InputAdornment } from '@mui/material';
+
+import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link as MUILink } from '@mui/material';
 import Logo from '../public/logo.png';
 import NavDrawer from './nav-drawer';
 import { useState } from 'react';

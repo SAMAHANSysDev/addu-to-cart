@@ -1,9 +1,13 @@
 import React from "react";
-import Image from 'next/image';
 import Link from 'next/link';
-import { Card } from "@mui/material";
-import { CardActions, CardContent, CardMedia, CardActionArea, Typography } from "@mui/material";
-import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import CardActionArea from '@mui/material/CardActionArea';
+import Typography from '@mui/material/Typography';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import GradientHeader from "./gradient-headline";
 
 const theme = createTheme({

@@ -3,26 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
-  styled,
-  alpha,
   createTheme,
   ThemeProvider,
-  responsiveFontSizes,
 } from "@mui/material/styles";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  Typography,
-  IconButton,
-  Button,
-  TextField,
-  useMediaQuery,
-} from "@mui/material";
-import { InputAdornment } from "@mui/material";
+
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
+import TextField from '@mui/material/TextField';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import InputAdornment from "@mui/material/InputAdornment";
+
 import SearchIcon from "@mui/icons-material/Search";
 import { Link as MUILink } from "@mui/material";
-import Logo from "../public/logo.png";
+
 import MobileHeader from "./header-mobile";
 
 const theme = createTheme({

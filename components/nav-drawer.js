@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { Drawer, List, ListItem, ListItemText, IconButton, Typography } from "@mui/material";
-import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Typography from '@mui/material/Typography';
+import MUILink from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Link from "next/link";
-import { Link as MUILink } from '@mui/material';
+
 import MenuIcon from '@mui/icons-material/Menu';
 
 const theme = createTheme({

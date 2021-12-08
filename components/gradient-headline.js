@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles'
 
 const GradientText = styled(Typography)(({theme}) =>({

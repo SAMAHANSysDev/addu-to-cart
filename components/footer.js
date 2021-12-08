@@ -1,9 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { AppBar, Toolbar, Container, Box, Typography, Grid, IconButton} from '@mui/material';
-import { Link as MUILink } from '@mui/material';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import IconButton from '@mui/material/IconButton';
+import Avatar from '@mui/material/Avatar';
+import CardHeader from '@mui/material/CardHeader';
+
 import Logo from '../public/logo.png'
 
 let theme = createTheme({
