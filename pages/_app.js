@@ -7,6 +7,9 @@ import NProgress from "nprogress";
 import "../styles/nprogress.css";
 import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 
+import { ApolloProvider } from "@apollo/client";
+import client from "../utils/apollo-client";
+
 NProgress.configure({
   showSpinner: false,
 });
@@ -59,15 +62,17 @@ theme = responsiveFontSizes(theme);
 
 function MyApp({ Component, pageProps }) {
   return (
-    <React.Fragment>
-      <Header />
-      <main>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </main>
-      <Footer />
-    </React.Fragment>
+    <ApolloProvider client={client}>
+      <React.Fragment>
+        <Header />
+        <main>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </main>
+        <Footer />
+      </React.Fragment>
+    </ApolloProvider>
   );
 }
 

@@ -16,7 +16,7 @@ const GradientButton = styled(Button)(({theme}) =>({
 
 export default function GradButton(props){
     return(
-        <GradientButton variant="contained">
+        <GradientButton {...props} variant="contained">
             <Typography variant="h5">{props.text}</Typography>
         </GradientButton>
     )

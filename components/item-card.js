@@ -47,21 +47,21 @@ const theme = createTheme({
     },
   });
 
-export default function ItemCard(){
+export default function ItemCard({ product }){
     return(
         <ThemeProvider theme={theme}>
             <Card sx={{maxHeight: 400, width: 265, padding: 1, borderRadius: 5}}>
-                <Link href="/item" passHref>
+                <Link href={`/products/${product?.id}`} passHref>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        image="/promo-boy.png"
+                        image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}`}
                         alt="item preview"
                     />
                     <CardContent>
-                        <GradientHeader variant="h3" text="₱21" component="div"/>
+                        <GradientHeader variant="h3" text={`₱${product?.price}`} component="div"/>
                         <Typography variant="body_italic">
-                            Laptop Model 21
+                            {product?.name}
                         </Typography>
                     </CardContent>
                 </CardActionArea>

@@ -21,6 +21,17 @@ import { Link as MUILink } from "@mui/material";
 
 import MobileHeader from "./header-mobile";
 
+import { useQuery, gql } from "@apollo/client";
+
+const QUERY_CATEGORIES = gql`
+  query Categories  {
+    categories {
+      id
+      name
+    }
+  }
+`;
+
 const theme = createTheme({
   typography: {
     fontFamily: ["Poppins"].join(","),
@@ -35,6 +46,9 @@ function Header() {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+
+  const { data, loading, error } = useQuery(QUERY_CATEGORIES);
+
   if (!isMobile) {
     return (
       <ThemeProvider theme={theme}>
@@ -104,64 +118,32 @@ function Header() {
                   fullWidth
                 ></TextField>
               </Box>
-              <Box
-                sx={{ display: "flex", mt: 2, alignContent: "space-evenly" }}
-              >
-                <Box mr={3}>
-                  <Typography variant="h6" component="div" color="common.black">
-                    <Link href="/food" passHref>
-                      <MUILink color="inherit" underline="hover">
-                        FOOD
-                      </MUILink>
-                    </Link>
-                  </Typography>
+              { !loading ? (
+                <Box
+                  sx={{ display: "flex", mt: 2, alignContent: "space-evenly" }}
+                >
+                  { data.categories.map((category) => (
+                    <Box key={category.id} mr={3}>
+                      <Typography variant="h6" component="div" color="common.black">
+                        <Link href={`/categories/${category.id}`} passHref>
+                          <MUILink color="inherit" underline="hover">
+                            {category.name.toUpperCase()}
+                          </MUILink>
+                        </Link>
+                      </Typography>
+                    </Box>
+                  )) }
+                  <Box mr={3}>
+                    <Typography variant="h6" component="div" color="common.black">
+                      <Link href="/shops" passHref>
+                        <MUILink color="inherit" underline="hover">
+                          SHOPS DIRECTORY
+                        </MUILink>
+                      </Link>
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box mr={3}>
-                  <Typography variant="h6" component="div" color="common.black">
-                    <Link href="/clothing" passHref>
-                      <MUILink color="inherit" underline="hover">
-                        CLOTHING
-                      </MUILink>
-                    </Link>
-                  </Typography>
-                </Box>
-                <Box mr={3}>
-                  <Typography variant="h6" component="div" color="common.black">
-                    <Link href="/health" passHref>
-                      <MUILink color="inherit" underline="hover">
-                        HEALTH
-                      </MUILink>
-                    </Link>
-                  </Typography>
-                </Box>
-                <Box mr={3}>
-                  <Typography variant="h6" component="div" color="common.black">
-                    <Link href="/home-living" passHref>
-                      <MUILink color="inherit" underline="hover">
-                        HOME LIVING
-                      </MUILink>
-                    </Link>
-                  </Typography>
-                </Box>
-                <Box mr={3}>
-                  <Typography variant="h6" component="div" color="common.black">
-                    <Link href="/services" passHref>
-                      <MUILink color="inherit" underline="hover">
-                        SERVICES
-                      </MUILink>
-                    </Link>
-                  </Typography>
-                </Box>
-                <Box mr={3}>
-                  <Typography variant="h6" component="div" color="common.black">
-                    <Link href="/shops" passHref>
-                      <MUILink color="inherit" underline="hover">
-                        SHOPS DIRECTORY
-                      </MUILink>
-                    </Link>
-                  </Typography>
-                </Box>
-              </Box>
+              ) : <></> }
             </Box>
           </Toolbar>
         </AppBar>
