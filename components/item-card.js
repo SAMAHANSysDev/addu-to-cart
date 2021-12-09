@@ -55,7 +55,7 @@ export default function ItemCard({ product }){
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}`}
+                        image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}?width=250&height=250`}
                         alt="item preview"
                     />
                     <CardContent>
