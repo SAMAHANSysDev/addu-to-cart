@@ -12,11 +12,19 @@ import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
 
 import ItemCard from '../../components/item-card';
+import ImageGallery from 'react-image-gallery';
 
 import { gql } from "@apollo/client";
 import client from "../../utils/apollo-client";
 
 export default function Products({ data }) {
+
+  const images = data.images.map((image, i) => (
+    {
+      original: `https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}?width=250&height=250`,
+      thumbnail: `https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}?width=50&height=50`
+    }
+  ));
 
   return (
     <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
@@ -30,8 +38,8 @@ export default function Products({ data }) {
           borderRadius: "30px"
           }}>
           <Grid container spacing={3} direction="row">
-            <Grid item md={4}>
-              <Grid container item justifyContent="center">
+            <Grid item lg={4} justifyContent="center">
+{/*               <Grid container item justifyContent="center">
                 <Image src={`https://samahan-cloud.addu.edu.ph/assets/${data?.images[0]?.directus_files_id?.filename_disk}`} width="250px" height="250px"></Image>
               </Grid>
               <Grid container item justifyContent="center" marginTop={2} spacing={1}>
@@ -40,9 +48,13 @@ export default function Products({ data }) {
                     <Image src={`https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}`} width="50px" height="50px"></Image>
                   </Grid>
                 ) : null) }
-              </Grid>
+              </Grid> */}
+              {images ? (
+                <ImageGallery items={images} showPlayButton={false} />
+              ) : null
+              }
             </Grid>
-            <Grid item md={8}>
+            <Grid item lg={8}>
               <Grid item>
                 <Typography variant="h2" color="common.black">{data.name}</Typography>
               </Grid>

@@ -5,6 +5,7 @@ import Footer from "../components/footer.js";
 import Router from "next/router";
 import NProgress from "nprogress";
 import "../styles/nprogress.css";
+import "../styles/image-gallery.css";
 import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 
 import { ApolloProvider } from "@apollo/client";
