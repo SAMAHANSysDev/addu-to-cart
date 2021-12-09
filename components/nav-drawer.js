@@ -67,7 +67,7 @@ export default function NavDrawer(){
                 {!loading ? (
                     <List>
                         { data.categories.map((category) => (
-                            <ListItem onClick={() => setOpenDrawer(false)}>
+                            <ListItem key={category.id} onClick={() => setOpenDrawer(false)}>
                                 <Typography variant="h6" component="div" color="common.black">
                                     <Link href={`/categories/${category.id}`} passHref>
                                         <MUILink color="inherit" underline="hover">{category.name.toUpperCase()}</MUILink>
