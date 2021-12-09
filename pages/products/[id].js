@@ -65,7 +65,7 @@ export default function Products({ data }) {
                 <Grid item>
                   <CardHeader
                     avatar={
-                      <Avatar>H</Avatar>
+                      <Avatar src={`https://samahan-cloud.addu.edu.ph/assets/${data.shop.logo?.filename_disk}?width=50&height=50`} />
                     }
                     title={data.shop.name}
                     titleTypographyProps={{variant: "h5"}}
@@ -129,6 +129,9 @@ export async function getServerSideProps(context) {
             id
             name
             url
+            logo {
+              filename_disk
+            }
           }
           images {
             directus_files_id {

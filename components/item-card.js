@@ -50,23 +50,24 @@ const theme = createTheme({
 export default function ItemCard({ product }){
     return(
         <ThemeProvider theme={theme}>
-            <Card sx={{maxHeight: 400, width: 265, padding: 1, borderRadius: 5}}>
-                <Link href={`/products/${product?.id}`} passHref>
-                <CardActionArea>
-                    <CardMedia
-                        component="img"
-                        image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}?width=250&height=250`}
-                        alt="item preview"
-                    />
-                    <CardContent>
-                        <GradientHeader variant="h3" text={`₱${product?.price}`} component="div"/>
-                        <Typography variant="body_italic">
-                            {product?.name}
-                        </Typography>
-                    </CardContent>
+            <Link href={`/products/${product?.id}`} passHref>
+                <CardActionArea style={{ borderRadius: 20 }}>
+                    <Card sx={{maxHeight: 400, width: 265, padding: 1, borderRadius: 5}}>
+                        <CardMedia
+                            component="img"
+                            image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}?width=250&height=250`}
+                            alt="item preview"
+                            style={{ borderRadius: 20 }}
+                        />
+                        <CardContent>
+                            <GradientHeader variant="h3" text={`₱${product?.price}`} component="div"/>
+                            <Typography variant="body_italic">
+                                {product?.name}
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 </CardActionArea>
-                </Link>
-            </Card>
+            </Link>
         </ThemeProvider>
     )
 }

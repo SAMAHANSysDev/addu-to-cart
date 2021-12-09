@@ -52,18 +52,20 @@ function Footer(){
             <Box sx={{padding: 5, flexGrow: 1}}>
                 <Grid container spacing={1} columns={{md: 16}} justifyContent="center">
                     <Grid item md={4} justifyContent="center">
-                        <IconButton 
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                        >
-                            <Image src={Logo} alt="logo"/>
-                        </IconButton>
+                        <center>
+                            <IconButton 
+                                size="large"
+                                edge="start"
+                                color="inherit"
+                                aria-label="menu"
+                            >
+                                <Image src={Logo} alt="logo"/>
+                            </IconButton>
+                        </center>
                     </Grid>
                     <Grid container item md={12} justifyContent="center" spacing={2}>
                         <Grid item md={3}>
-                            <Grid item>
+                            <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Explore</Typography>
                             </Grid>
                             <Grid item>
@@ -78,7 +80,7 @@ function Footer(){
                         </Grid>
                         { !loading ? (
                             <Grid item md={3}>
-                                <Grid item>
+                                <Grid item style={{ marginBottom: '1rem' }}>
                                     <Typography variant="h5" color="common.black">Shops</Typography>
                                 </Grid>
                                 { data.categories.map((category) => (
@@ -89,7 +91,7 @@ function Footer(){
                             </Grid>
                         ) : null }
                         <Grid item md={3}>
-                            <Grid item>
+                            <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Info</Typography>
                             </Grid>
                             <Grid item>
@@ -103,7 +105,7 @@ function Footer(){
                             </Grid>
                         </Grid>
                         <Grid item md={3}>
-                            <Grid item>
+                            <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Connect</Typography>
                             </Grid>
                             <Grid item>
