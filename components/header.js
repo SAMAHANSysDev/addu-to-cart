@@ -15,6 +15,7 @@ import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import InputAdornment from "@mui/material/InputAdornment";
+import Grid from '@mui/material/Grid'
 
 import SearchIcon from "@mui/icons-material/Search";
 import { Link as MUILink } from "@mui/material";
@@ -119,11 +120,9 @@ function Header() {
                 ></TextField>
               </Box>
               { !loading ? (
-                <Box
-                  sx={{ display: "flex", mt: 2, alignContent: "space-evenly" }}
-                >
+                <Grid container spacing={2} marginTop={1}>
                   { data.categories.map((category) => (
-                    <Box key={category.id} mr={3}>
+                    <Grid item key={category.id}>
                       <Typography variant="h6" component="div" color="common.black">
                         <Link href={`/categories/${category.id}`} passHref>
                           <MUILink color="inherit" underline="hover">
@@ -131,9 +130,9 @@ function Header() {
                           </MUILink>
                         </Link>
                       </Typography>
-                    </Box>
+                    </Grid>
                   )) }
-                  <Box mr={3}>
+                  <Grid item>
                     <Typography variant="h6" component="div" color="common.black">
                       <Link href="/shops" passHref>
                         <MUILink color="inherit" underline="hover">
@@ -141,8 +140,8 @@ function Header() {
                         </MUILink>
                       </Link>
                     </Typography>
-                  </Box>
-                </Box>
+                  </Grid>
+                </Grid>
               ) : <></> }
             </Box>
           </Toolbar>

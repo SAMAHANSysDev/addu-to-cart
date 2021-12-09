@@ -34,7 +34,7 @@ export default function Products({ data }) {
               <Grid container item justifyContent="center">
                 <Image src={`https://samahan-cloud.addu.edu.ph/assets/${data?.images[0]?.directus_files_id?.filename_disk}`} width="250px" height="250px"></Image>
               </Grid>
-              <Grid container item justifyContent="center">
+              <Grid container item justifyContent="center" marginTop={2} spacing={1}>
                 { data.images.map((image, i) => i > 0 ? (
                   <Grid item>
                     <Image src={`https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}`} width="50px" height="50px"></Image>
