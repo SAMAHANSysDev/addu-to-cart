@@ -56,7 +56,7 @@ export default function Home({ categories }) {
                 )) }
               </Grid>
               <Grid container justifyContent="flex-end" marginTop={3}>
-                <SeeMoreButton href="/food"/>
+                <SeeMoreButton href={`/categories/${category.id}`}/>
               </Grid>
           </Box>
         </Box>
