@@ -1,3 +1,6 @@
+import { gql } from "@apollo/client";
+import client from "../utils/apollo-client";
+
 import React from 'react';
 import GradientHeader from '../components/gradient-headline';
 
@@ -7,39 +10,70 @@ import Grid from '@mui/material/Grid';
 import SearchCard from '../components/search-card';
 import { useRouter } from 'next/router';
 
-export default function Search(){
+export default function Search({ search }){
     const router = useRouter();
-    console.log(router.query.query);
+
+    const searchQuery = router.query.query
 
     return(
         <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5", width: "100%"}}>
-            <Box
-            sx={{
-                margin: "auto",
-                marginTop: 2,
-                width: "80%"
-            }}>
+            { search.map((category) => (
+                <Box
+                key={category.id}
+                sx={{
+                    margin: "auto",
+                    marginTop: 2,
+                    width: "80%"
+                }}>
                 <Box>
-                    <GradientHeader variant="h2" text="FOOD"/>
+                    <GradientHeader variant="h2" text={category.name.toUpperCase()} />
                     <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                        <Grid item>
-                        <SearchCard/>
-                        </Grid>
-                        <Grid item>
-                        <SearchCard/>
-                        </Grid>
-                        <Grid item>
-                        <SearchCard/>
-                        </Grid>
-                        <Grid item>
-                        <SearchCard/>
-                        </Grid>
-                        <Grid item>
-                        <SearchCard/>
-                        </Grid>
+                        { category.products.map(({ products_id: product }) => (
+                            product.name.toLowerCase().includes(searchQuery.toLowerCase()) ? (
+                                <Grid key={product.id} item>
+                                    <SearchCard product={product} />
+                                </Grid>
+                            ) : null
+                        )) }
                     </Grid>
                 </Box>
-            </Box>
+                </Box>
+            )) }
         </Box>
     )
 }
+
+export async function getServerSideProps() {
+    const { data } = await client.query({
+      query: gql`
+        query Categories {
+          categories {
+            id
+            name
+            products {
+              products_id {
+                id
+                name
+                price
+                shop {
+                    id
+                    name
+                    url
+                    }
+                images {
+                  directus_files_id(limit: 1) {
+                    filename_disk
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+    });
+    return {
+      props: {
+        search: data.categories
+      },
+    };
+  }

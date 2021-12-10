@@ -38,6 +38,10 @@ let theme = createTheme({
         h6: {
             fontWeight: 400,
             fontSize: 18,
+        },
+        body: {
+            fontWeight: 400,
+            fontSize: 14,
         }
     },
 });
@@ -50,8 +54,8 @@ function Footer(){
     return(
         <ThemeProvider theme={theme}>
             <Box sx={{padding: 5, flexGrow: 1}}>
-                <Grid container spacing={1} columns={{md: 16}} justifyContent="center">
-                    <Grid item md={4} justifyContent="center">
+                <Grid container spacing={1} columns={{lg: 16}} justifyContent="center">
+                    <Grid item lg={4} justifyContent="center">
                         <center>
                             <IconButton 
                                 size="large"
@@ -63,8 +67,8 @@ function Footer(){
                             </IconButton>
                         </center>
                     </Grid>
-                    <Grid container item md={12} justifyContent="center" spacing={2}>
-                        <Grid item md={3}>
+                    <Grid container item lg={12} justifyContent="center" spacing={2}>
+                        <Grid item lg={3}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Explore</Typography>
                             </Grid>
@@ -79,7 +83,7 @@ function Footer(){
                             </Grid>
                         </Grid>
                         { !loading ? (
-                            <Grid item md={3}>
+                            <Grid item lg={3}>
                                 <Grid item style={{ marginBottom: '1rem' }}>
                                     <Typography variant="h5" color="common.black">Shops</Typography>
                                 </Grid>
@@ -90,7 +94,7 @@ function Footer(){
                                 )) }
                             </Grid>
                         ) : null }
-                        <Grid item md={3}>
+                        <Grid item lg={3}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Info</Typography>
                             </Grid>
@@ -104,7 +108,7 @@ function Footer(){
                                 <Typography variant="h6_bold" color="common.black">Policies</Typography>
                             </Grid>
                         </Grid>
-                        <Grid item md={3}>
+                        <Grid item lg={3}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Connect</Typography>
                             </Grid>
@@ -121,7 +125,7 @@ function Footer(){
                     </Grid>
                 </Grid>
                 <Box sx={{margin: 'auto', textAlign: 'center', marginTop: 5}}>
-                    <Typography variant="h6" component="div" color="common.black">Copyright 2021 SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development</Typography>
+                    <Typography variant="body" component="div" color="common.black">Copyright 2021 SAMAHAN Central Board | Developed by SAMAHAN Creative Team and SAMAHAN System Development</Typography>
                 </Box>
             </Box>
         </ThemeProvider>

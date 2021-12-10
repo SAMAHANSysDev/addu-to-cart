@@ -44,9 +44,9 @@ export default function Shops() {
                 <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
               </Grid>
             </Grid>
-            <Grid container justifyContent="center" marginY={4}>
+{/*             <Grid container justifyContent="center" marginY={4}>
               <LoadMoreButton/>
-            </Grid>
+            </Grid> */}
         </Box>
       </Box>
     </Box>

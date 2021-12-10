@@ -48,24 +48,25 @@ const theme = createTheme({
     },
   });
 
-export default function SearchCard(){
+export default function SearchCard({ product }){
     return(
         <ThemeProvider theme={theme}>
             <Card sx={{maxHeight: 400, width: 265, padding: 1, borderRadius: 5}}>
-                <Link href="/" passHref>
+                 <Link href={`/products/${product?.id}`} passHref>
                 <CardActionArea>
                     <CardMedia
                         component="img"
-                        image="/promo-boy.png"
+                        image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}?width=250&height=250`}
                         alt="item preview"
+                        style={{ borderRadius: 20 }}
                     />
                     <CardContent>
-                        <GradientHeader variant="h3" text="₱21" component="div"/>
+                        <GradientHeader variant="h3" text={`₱${product?.price}`} component="div"/>
                         <Typography variant="body_italic" component="div">
-                            Laptop Model 21
+                            {product?.name}
                         </Typography>
                         <Typography variant="body">
-                            Seller
+                            {product?.shop?.name}
                         </Typography>
                     </CardContent>
                 </CardActionArea>
