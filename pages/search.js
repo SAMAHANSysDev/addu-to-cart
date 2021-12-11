@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 import client from "../utils/apollo-client";
+import { NextSeo } from 'next-seo';
 
 import React from 'react';
 import GradientHeader from '../components/gradient-headline';

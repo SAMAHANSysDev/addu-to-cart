@@ -16,6 +16,7 @@ import ImageGallery from 'react-image-gallery';
 
 import { gql } from "@apollo/client";
 import client from "../../utils/apollo-client";
+import { NextSeo } from 'next-seo';
 
 export default function Products({ data }) {
 
@@ -27,90 +28,106 @@ export default function Products({ data }) {
   ));
 
   return (
-    <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
-      <Paper elevation={4}
-        sx={{
-          margin: "auto",
-          position: "relative", 
-          width: "80%",
-          padding: 5,
-          minHeight: "400px", 
-          borderRadius: "30px"
-          }}>
-          <Grid container spacing={3} direction="row">
-            <Grid item lg={4} justifyContent="center">
-{/*               <Grid container item justifyContent="center">
-                <Image src={`https://samahan-cloud.addu.edu.ph/assets/${data?.images[0]?.directus_files_id?.filename_disk}`} width="250px" height="250px"></Image>
-              </Grid>
-              <Grid container item justifyContent="center" marginTop={2} spacing={1}>
-                { data.images.map((image, i) => i > 0 ? (
-                  <Grid item>
-                    <Image src={`https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}`} width="50px" height="50px"></Image>
-                  </Grid>
-                ) : null) }
-              </Grid> */}
-              {images ? (
-                <ImageGallery items={images} showPlayButton={false} />
-              ) : null
-              }
-            </Grid>
-            <Grid item lg={8}>
-              <Grid item>
-                <Typography variant="h2" color="common.black">{data.name}</Typography>
-              </Grid>
-              <Grid container spacing={4} alignItems="center">
-                <Grid item>
-                  <GradientHeader variant="h2" text={`Php ${data.price}`}/>
+    <>
+      <NextSeo
+        title={`${data?.name} | AdDU-To-Cart`}
+        description="Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs."
+        canonical={`https://addutocart.addu.edu.ph/products/${data?.id}`}
+        openGraph={{
+          url: `https://addutocart.addu.edu.ph/products/${data?.id}`,
+          title: `${data?.name} | AdDU-To-Cart`,
+          description: 'Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs.',
+          images: data?.images?.map((image) => ({
+            url: `https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}?width=800&height=600`
+          })),
+          site_name: 'AdDU To Cart',
+        }}
+      />
+      <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
+        <Paper elevation={4}
+          sx={{
+            margin: "auto",
+            position: "relative", 
+            width: "80%",
+            padding: 5,
+            minHeight: "400px", 
+            borderRadius: "30px"
+            }}>
+            <Grid container spacing={3} direction="row">
+              <Grid item lg={4} justifyContent="center">
+  {/*               <Grid container item justifyContent="center">
+                  <Image src={`https://samahan-cloud.addu.edu.ph/assets/${data?.images[0]?.directus_files_id?.filename_disk}`} width="250px" height="250px"></Image>
                 </Grid>
+                <Grid container item justifyContent="center" marginTop={2} spacing={1}>
+                  { data.images.map((image, i) => i > 0 ? (
+                    <Grid item>
+                      <Image src={`https://samahan-cloud.addu.edu.ph/assets/${image.directus_files_id?.filename_disk}`} width="50px" height="50px"></Image>
+                    </Grid>
+                  ) : null) }
+                </Grid> */}
+                {images ? (
+                  <ImageGallery items={images} showPlayButton={false} />
+                ) : null
+                }
+              </Grid>
+              <Grid item lg={8}>
                 <Grid item>
-                  <CardHeader
-                    avatar={
-                      <Avatar src={`https://samahan-cloud.addu.edu.ph/assets/${data.shop.logo?.filename_disk}?width=50&height=50`} />
-                    }
-                    title={data.shop.name}
-                    titleTypographyProps={{variant: "h5"}}
+                  <Typography variant="h2" color="common.black">{data.name}</Typography>
+                </Grid>
+                <Grid container spacing={4} alignItems="center">
+                  <Grid item>
+                    <GradientHeader variant="h2" text={`Php ${data.price}`}/>
+                  </Grid>
+                  <Grid item>
+                    <CardHeader
+                      avatar={
+                        <Avatar src={`https://samahan-cloud.addu.edu.ph/assets/${data.shop.logo?.filename_disk}?width=50&height=50`} />
+                      }
+                      title={data.shop.name}
+                      titleTypographyProps={{variant: "h5"}}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid container item paddingY={3} direction="column">
+                  <Typography 
+                    variant="h5" 
+                    sx={{wordWrap: "break-word"}} 
+                    dangerouslySetInnerHTML={{__html: data.description}} 
                   />
                 </Grid>
-              </Grid>
-              <Grid container item paddingY={3} direction="column">
-                <Typography 
-                  variant="h5" 
-                  sx={{wordWrap: "break-word"}} 
-                  dangerouslySetInnerHTML={{__html: data.description}} 
-                />
-              </Grid>
-              <Grid container item spacing={3} alignItems="center">
-                <Grid item>
-                  <GradButton onClick={() => { window.open(data.shop.url, '_blank'); }} text="ORDER/INQUIRE"/>
+                <Grid container item spacing={3} alignItems="center">
+                  <Grid item>
+                    <GradButton onClick={() => { window.open(data.shop.url, '_blank'); }} text="ORDER/INQUIRE"/>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-      </Paper>
-      <Box sx={{margin: "auto", marginTop: 2, width: "80%", paddingY: 5}}>
-        <Box>
-            <Typography variant="h3" style={{ fontSize: 36 }} color="common.black" marginY={2}>Suggested</Typography>
-            <Grid container spacing={3} sx={{margin: "auto"}} justifyContent="center">
-              {/*Add map function later*/}
-              { data.categories[0]
-                .categories_id
-                .products
-                .map(({
-                  products_id: related_product
-                }) => related_product.id !== data.id ? (
-                <Grid item key={related_product.id}> 
-                  <ItemCard product={related_product} />
-                </Grid>
-              ) : null )}
-            </Grid>
-            {/*
-            <Grid container justifyContent="center" marginY={4}>
-              <LoadMoreButton/>
-            </Grid>
-            */}
+        </Paper>
+        <Box sx={{margin: "auto", marginTop: 2, width: "80%", paddingY: 5}}>
+          <Box>
+              <Typography variant="h3" style={{ fontSize: 36 }} color="common.black" marginY={2}>Suggested</Typography>
+              <Grid container spacing={3} sx={{margin: "auto"}} justifyContent="center">
+                {/*Add map function later*/}
+                { data.categories[0]
+                  .categories_id
+                  .products
+                  .map(({
+                    products_id: related_product
+                  }) => related_product.id !== data.id ? (
+                  <Grid item key={related_product.id}> 
+                    <ItemCard product={related_product} />
+                  </Grid>
+                ) : null )}
+              </Grid>
+              {/*
+              <Grid container justifyContent="center" marginY={4}>
+                <LoadMoreButton/>
+              </Grid>
+              */}
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </>
   )
 }
 
