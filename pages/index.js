@@ -23,6 +23,7 @@ export default function Home({ categories }) {
         description="Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs."
         canonical="https://addutocart.addu.edu.ph"
         openGraph={{
+          type: 'website',
           url: 'https://addutocart.addu.edu.ph',
           title: 'AdDU-To-Cart | A marketplace for Atenean Entrepreneurs.',
           description: 'Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs.',
