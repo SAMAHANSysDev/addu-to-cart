@@ -6,8 +6,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import Avatar from '@mui/material/Avatar';
-import CardHeader from '@mui/material/CardHeader';
+
+import Link from 'next/link';
+import { Link as MUILink } from "@mui/material";
 
 import Logo from '../public/logo.png'
 
@@ -89,7 +90,13 @@ function Footer(){
                                 </Grid>
                                 { data.categories.map((category) => (
                                     <Grid item key={category.id}>
-                                        <Typography variant="h6_bold" color="common.black">{category.name}</Typography>
+                                    <Typography variant="h6_bold" component="div" color="common.black">
+                                        <Link href={`/categories/${category.id}`} passHref>
+                                            <MUILink color="inherit" underline="hover">
+                                                {category.name}
+                                            </MUILink>
+                                        </Link>
+                                    </Typography>
                                     </Grid>
                                 )) }
                             </Grid>
