@@ -28,6 +28,9 @@ export default function Categories({ data }) {
           ],
           site_name: 'AdDU To Cart',
         }}
+        twitter={{
+          cardType: 'summary_large_image'
+        }}
       />
       <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5"}}>
         <Box sx={{margin: "auto", marginTop: 2, width: "80%"}}>
