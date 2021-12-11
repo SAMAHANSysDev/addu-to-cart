@@ -55,7 +55,7 @@ function Footer(){
     return(
         <ThemeProvider theme={theme}>
             <Box sx={{padding: 5, flexGrow: 1}}>
-                <Grid container spacing={1} columns={{lg: 16}} justifyContent="center">
+                <Grid container spacing={2} columns={{lg: 16}} justifyContent="center" sx={{width: "100%"}}>
                     <Grid item lg={4} justifyContent="center">
                         <center>
                             <IconButton 
@@ -68,8 +68,8 @@ function Footer(){
                             </IconButton>
                         </center>
                     </Grid>
-                    <Grid container item lg={12} justifyContent="center" spacing={2}>
-                        <Grid item lg={3}>
+                    <Grid container item lg={12} justifyContent="space-around" spacing={1} paddingLeft={1}>
+                        <Grid item lg={3} paddingRight={2}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Explore</Typography>
                             </Grid>
@@ -101,7 +101,7 @@ function Footer(){
                                 )) }
                             </Grid>
                         ) : null }
-                        <Grid item lg={3}>
+                        <Grid item lg={3} paddingRight={2}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Info</Typography>
                             </Grid>
@@ -115,7 +115,7 @@ function Footer(){
                                 <Typography variant="h6_bold" color="common.black">Policies</Typography>
                             </Grid>
                         </Grid>
-                        <Grid item lg={3}>
+                        <Grid item lg={3} paddingRight={7}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">Connect</Typography>
                             </Grid>
