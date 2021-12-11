@@ -3,69 +3,65 @@ import client from "../utils/apollo-client";
 import { NextSeo } from 'next-seo';
 
 import React from 'react';
-import GradientHeader from '../components/gradient-headline';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 
 import SearchCard from '../components/search-card';
-import { useRouter } from 'next/router';
 
-export default function Search({ search }){
-    const router = useRouter();
-
-    const searchQuery = router.query.query
-
+export default function Search({ search, query }){
     return(
+      <>
+        <NextSeo
+          title={`Search results for ${query} | AdDU-To-Cart`}
+          description="Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs."
+          canonical={`https://addutocart.addu.edu.ph/search?query=${query}`}
+          openGraph={{
+            type: 'website',
+            url: `https://addutocart.addu.edu.ph/search?query=${query}`,
+            title: `Search results for ${query} | AdDU-To-Cart`,
+            description: 'Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs.',
+            images: [
+              {
+                url: 'https://addutocart.addu.edu.ph/atc-800x600.jpg',
+              },
+            ],
+            site_name: 'AdDU To Cart',
+          }}
+        />
         <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5", width: "100%"}}>
-            { search.map((category) => (
-                <Box
-                key={category.id}
-                sx={{
-                    margin: "auto",
-                    marginTop: 2,
-                    width: "80%"
-                }}>
-                <Box>
-                    <GradientHeader variant="h2" text={category.name.toUpperCase()} />
-                    <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                        { category.products.map(({ products_id: product }) => (
-                            product.name.toLowerCase().includes(searchQuery.toLowerCase()) ? (
-                                <Grid key={product.id} item>
-                                    <SearchCard product={product} />
-                                </Grid>
-                            ) : null
-                        )) }
-                    </Grid>
-                </Box>
-                </Box>
-            )) }
+          <Box
+            sx={{
+                margin: "auto",
+                marginTop: 2,
+                width: "80%"
+            }}>
+            <Box>
+                <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
+                    { search.map((product) => (
+                      <Grid key={product.id} item>
+                          <SearchCard product={product} />
+                      </Grid>
+                    )) }
+                </Grid>
+            </Box>
+          </Box>
         </Box>
+      </>
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query }) {
     const { data } = await client.query({
       query: gql`
-        query Categories {
-          categories {
+        query Search {
+          products(search: "${query.query}") {
             id
             name
-            products {
-              products_id {
-                id
-                name
-                price
-                shop {
-                    id
-                    name
-                    url
-                    }
-                images {
-                  directus_files_id(limit: 1) {
-                    filename_disk
-                  }
-                }
+            price
+            images {
+              directus_files_id {
+                filename_disk
               }
             }
           }
@@ -74,7 +70,8 @@ export async function getServerSideProps() {
     });
     return {
       props: {
-        search: data.categories
+        search: data.products,
+        query: query.query
       },
     };
   }
