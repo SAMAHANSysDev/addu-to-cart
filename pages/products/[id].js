@@ -80,7 +80,7 @@ export default function Products({ data }) {
                 </Grid>
                 <Grid container spacing={4} alignItems="center">
                   <Grid item>
-                    <GradientHeader variant="h2" text={data.price !== 0 ? `₱${data.price}` : 'Inquire for Price'}/>
+                    <GradientHeader variant="h2" text={data.price !== 0 ? `₱${data.price}${data.max_price ? `-₱${data.max_price}` : ''}` : 'Inquire for Price'}/>
                   </Grid>
                   <Grid item>
                     <CardHeader
@@ -145,6 +145,7 @@ export async function getServerSideProps(context) {
           id
           name
           price
+          max_price
           description
           shop {
             id
