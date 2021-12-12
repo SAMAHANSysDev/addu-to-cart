@@ -42,7 +42,10 @@ export default function Home({ categories }) {
             position: "relative", 
             width: "80%",
             minHeight: "400px", 
-            background: "linear-gradient(to right, #00ecc2, #0078ff)",
+            //background: "linear-gradient(to right, #00ecc2, #0078ff)",
+            backgroundImage: "url(/cover.jpeg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             borderRadius: "30px"
             }}>
             <Box
@@ -50,11 +53,13 @@ export default function Home({ categories }) {
                 padding: 6,
                 mx: 2,
               }}>
+              {/* 
               <Typography variant="h1" color="common.white">11.11 SALE!</Typography>
               <Typography variant="h5" color="common.white">COMING SOON (PUBMATS HERE)</Typography>
               <div className="poster-boy">
                 <Image src={PosterBoy} alt="promo-boy" layout="intrinsic"/>
               </div>
+              */}
             </Box>
         </Box>
         { categories.map((category) => (
