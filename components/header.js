@@ -70,8 +70,8 @@ function Header() {
                 <Image
                   src="/logo.png"
                   alt="logo"
-                  width="96px"
-                  height="124px"
+                  width="96"
+                  height="124"
                   layout="intrinsic"
                 />
               </IconButton>
@@ -91,7 +91,7 @@ function Header() {
                   }}
                   variant="filled"
                   InputLabelProps={{
-                    style: { color: "#FF8A25" },
+                    style: { color: "#0078ff" },
                   }}
                   InputProps={{
                     style: { borderRadius: 20 },
@@ -111,7 +111,7 @@ function Header() {
                             });
                           }}
                         >
-                          <SearchIcon style={{ color: "#FF8A25" }} />
+                          <SearchIcon style={{ color: "#0078ff" }} />
                         </IconButton>
                       </InputAdornment>
                     ),

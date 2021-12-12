@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles'
 
 const GradientText = styled(Typography)(({theme}) =>({
-    background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+    background: "linear-gradient(to bottom, #00ecc2, #0078ff)",
     WebkitBackgroundClip: "text",
     padding: 3,
     paddingTop: 10,

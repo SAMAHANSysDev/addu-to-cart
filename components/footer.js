@@ -64,7 +64,7 @@ function Footer(){
                                 color="inherit"
                                 aria-label="menu"
                             >
-                                <Image src={Logo} alt="logo"/>
+                                <Image src={Logo} width="96" height="124" alt="logo"/>
                             </IconButton>
                         </center>
                     </Grid>

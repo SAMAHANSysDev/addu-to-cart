@@ -42,7 +42,7 @@ export default function Home({ categories }) {
             position: "relative", 
             width: "80%",
             minHeight: "400px", 
-            background: "linear-gradient(to right, #FF8A25, #FF4359)",
+            background: "linear-gradient(to right, #00ecc2, #0078ff)",
             borderRadius: "30px"
             }}>
             <Box

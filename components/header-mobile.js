@@ -57,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
-      color: '#FF8A25',
+      color: '#0078ff',
       [theme.breakpoints.up('lg')]: {
         width: '70vw',
         '&:focus': {
@@ -84,12 +84,12 @@ export default function MobileHeader(){
                             color="inherit"
                             aria-label="home"
                         >
-                            <Image src={Logo} alt="logo" layout="intrinsic"/>
+                            <Image src={Logo} alt="logo" width="96" height="124" layout="intrinsic"/>
                         </IconButton>
                     </Link>
                     <Search>
                         <SearchIconWrapper>
-                            <SearchIcon sx={{color: '#FF8A25'}} />
+                            <SearchIcon sx={{color: '#0078ff'}} />
                         </SearchIconWrapper>
                             <StyledInputBase
                             placeholder="Search for products…"

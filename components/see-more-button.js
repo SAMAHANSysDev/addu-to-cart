@@ -8,7 +8,7 @@ import { alpha, styled } from '@mui/material/styles'
 import PinDropSharp from '@mui/icons-material/PinDropSharp';
 
 const GradientButton = styled(Button)(({theme}) =>({
-    background: "linear-gradient(to bottom, #FF4359, #FF8A25)",
+    background: "linear-gradient(to bottom, #00ecc2, #0078ff)",
     color: "white",
     padding: 15,
     letterSpacing: 1,
