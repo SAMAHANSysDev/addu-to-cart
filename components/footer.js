@@ -129,11 +129,6 @@ function Footer(){
                                     <Typography variant="h6_bold" color="common.black">Twitter</Typography>
                                 </a>
                             </Grid>
-                            <Grid item>
-                                <a href="#" target="_blank">    
-                                 <Typography variant="h6_bold" color="common.black">Instagram</Typography>
-                                </a>
-                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
