@@ -38,11 +38,11 @@ export default function Search({ search, query }){
             }}>
             <Box>
                 <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                    { search.map((product) => (
+                    { search.map((product) => product?.id ? (
                       <Grid key={product.id} item>
                           <SearchCard product={product} />
                       </Grid>
-                    )) }
+                    ) : null) }
                 </Grid>
             </Box>
           </Box>
