@@ -68,11 +68,11 @@ export default function Home({ categories }) {
             <Box>
                 <GradientHeader variant="h2" text={category.name.toUpperCase()} />
                 <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                  { category.products.map(({ products_id: product }) => (
+                  { category.products.map(({ products_id: product }) => product?.id ? (
                     <Grid key={product.id} item>
                       <ItemCard product={product} />
                     </Grid>
-                  )) }
+                  ) : null) }
                 </Grid>
                 <Grid container justifyContent="flex-end" marginTop={3}>
                   <SeeMoreButton href={`/categories/${category.id}`}/>

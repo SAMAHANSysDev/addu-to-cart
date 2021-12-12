@@ -37,11 +37,11 @@ export default function Categories({ data }) {
           <Box>
               <GradientHeader variant="h2" text={data?.name.toUpperCase()}/>
               <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                { data.products.map(({ products_id: product }) => (
+                { data.products.map(({ products_id: product }) => product?.id ? (
                   <Grid key={product.id} item>
                     <ItemCard product={product} />
                   </Grid>
-                )) }
+                ) : null) }
               </Grid>
               { /*
               <Grid container justifyContent="center" marginY={4}>

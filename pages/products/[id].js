@@ -117,7 +117,7 @@ export default function Products({ data }) {
                   .products
                   .map(({
                     products_id: related_product
-                  }) => related_product.id !== data.id ? (
+                  }) => related_product?.id !== data.id && related_product?.id ? (
                   <Grid item key={related_product.id}> 
                     <ItemCard product={related_product} />
                   </Grid>
@@ -168,6 +168,7 @@ export async function getServerSideProps(context) {
                   id
                   name
                   price
+                  price_currency
                   images {
                     directus_files_id {
                       filename_disk
