@@ -59,6 +59,7 @@ export async function getServerSideProps({ query }) {
             id
             name
             price
+            price_currency
             images {
               directus_files_id {
                 filename_disk

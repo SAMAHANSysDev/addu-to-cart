@@ -60,7 +60,7 @@ export default function ItemCard({ product }){
                             style={{ borderRadius: 20 }}
                         />
                         <CardContent>
-                            <GradientHeader variant="h3" text={product?.price !== 0 ? `₱${product?.price}` : 'Inquire'} component="div"/>
+                            <GradientHeader variant="h3" text={product?.price !== 0 ? `${product?.price_currency}${product?.price}` : 'Inquire'} component="div"/>
                             <Typography variant="body_italic">
                                 {product?.name}
                             </Typography>

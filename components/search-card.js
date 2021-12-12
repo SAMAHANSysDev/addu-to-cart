@@ -61,7 +61,7 @@ export default function SearchCard({ product }){
                         style={{ borderRadius: 20 }}
                     />
                     <CardContent>
-                        <GradientHeader variant="h3" text={`₱${product?.price}`} component="div"/>
+                        <GradientHeader variant="h3" text={product?.price !== 0 ? `${product?.price_currency}${product?.price}` : 'Inquire'} component="div"/>
                         <Typography variant="body_italic" component="div">
                             {product?.name}
                         </Typography>
