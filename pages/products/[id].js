@@ -80,7 +80,7 @@ export default function Products({ data }) {
                 </Grid>
                 <Grid container spacing={4} alignItems="center">
                   <Grid item>
-                    <GradientHeader variant="h2" text={`Php ${data.price}`}/>
+                    <GradientHeader variant="h2" text={data.price !== 0 ? `₱${data.price}` : 'Inquire for Price'}/>
                   </Grid>
                   <Grid item>
                     <CardHeader
