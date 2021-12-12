@@ -120,13 +120,19 @@ function Footer(){
                                 <Typography variant="h5" color="common.black">Connect</Typography>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6_bold" color="common.black">Facebook</Typography>
+                                <a href="https://www.facebook.com/addutocart2021/" target="_blank">
+                                    <Typography variant="h6_bold" color="common.black">Facebook</Typography>
+                                </a>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6_bold" color="common.black">Twitter</Typography>
+                                <a href="https://twitter.com/addutocart2021" target="_blank">
+                                    <Typography variant="h6_bold" color="common.black">Twitter</Typography>
+                                </a>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6_bold" color="common.black">Instagram</Typography>
+                                <a href="#" target="_blank">    
+                                 <Typography variant="h6_bold" color="common.black">Instagram</Typography>
+                                </a>
                             </Grid>
                         </Grid>
                     </Grid>
