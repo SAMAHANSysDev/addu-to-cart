@@ -1,9 +1,27 @@
 import React, { useState } from "react";
-import { Drawer, List, ListItem, ListItemText, IconButton, Typography } from "@mui/material";
-import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Typography from '@mui/material/Typography';
+import MUILink from '@mui/material/Link';
+import IconButton from '@mui/material/IconButton';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Link from "next/link";
-import { Link as MUILink } from '@mui/material';
+
 import MenuIcon from '@mui/icons-material/Menu';
+
+import { useQuery, gql } from "@apollo/client";
+
+const QUERY_CATEGORIES = gql`
+  query Categories  {
+    categories {
+      id
+      name
+    }
+  }
+`;
 
 const theme = createTheme({
     typography: {
@@ -39,56 +57,33 @@ const theme = createTheme({
 
 export default function NavDrawer(){
     const [openDrawer, setOpenDrawer] = useState(false);
+    const { data, loading, error } = useQuery(QUERY_CATEGORIES);
     return(
         <ThemeProvider theme={theme}>
             <Drawer 
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
             >
-                <List>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <Typography variant="h6" component="div" color="common.black">
-                            <Link href="/food" passHref>
-                                <MUILink color="inherit" underline="hover">FOOD</MUILink>
-                            </Link>
-                        </Typography>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <Typography variant="h6" component="div" color="common.black">
-                            <Link href="/clothing" passHref>
-                                <MUILink color="inherit" underline="hover">CLOTHING</MUILink>
-                            </Link>
-                        </Typography>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <Typography variant="h6" component="div" color="common.black">
-                            <Link href="/health" passHref>
-                                <MUILink color="inherit" underline="hover">HEALTH</MUILink>
-                            </Link>
-                        </Typography>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <Typography variant="h6" component="div" color="common.black">
-                            <Link href="/home-living" passHref>
-                                <MUILink color="inherit" underline="hover">HOME LIVING</MUILink>
-                            </Link>
-                        </Typography>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <Typography variant="h6" component="div" color="common.black">
-                            <Link href="/services" passHref>
-                                <MUILink color="inherit" underline="hover">SERVICES</MUILink>
-                            </Link>
-                        </Typography>
-                    </ListItem>
-                    <ListItem onClick={() => setOpenDrawer(false)}>
-                        <Typography variant="h6" component="div" color="common.black">
-                            <Link href="/shops" passHref>
-                                <MUILink color="inherit" underline="hover">SHOPS DIRECTORY</MUILink>
-                            </Link>
-                        </Typography>
-                    </ListItem>
-                </List>
+                {!loading ? (
+                    <List>
+                        { data.categories.map((category) => (
+                            <ListItem key={category.id} onClick={() => setOpenDrawer(false)}>
+                                <Typography variant="h6" component="div" color="common.black">
+                                    <Link href={`/categories/${category.id}`} passHref>
+                                        <MUILink color="inherit" underline="hover">{category.name.toUpperCase()}</MUILink>
+                                    </Link>
+                                </Typography>
+                            </ListItem>
+                        ))}
+                        <ListItem onClick={() => setOpenDrawer(false)}>
+                            <Typography variant="h6" component="div" color="common.black">
+                                <Link href="/shops" passHref>
+                                    <MUILink color="inherit" underline="hover">SHOPS DIRECTORY</MUILink>
+                                </Link>
+                            </Typography>
+                        </ListItem>
+                    </List>
+                ) : null}
             </Drawer>
             <IconButton
                 size="large"

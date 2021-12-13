@@ -1,9 +1,10 @@
 
+
 import { typography } from '@mui/system';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GradientHeader from '../components/gradient-headline'
-import styles from '../styles/Home.module.css'
+
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
 import adtcpic from '../public/two-combined.png'
@@ -119,4 +120,5 @@ accounts, or email us at samahanaddutocart@gmail.com
       </ThemeProvider>
        
     )
+
 }

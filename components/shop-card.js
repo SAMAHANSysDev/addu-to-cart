@@ -8,7 +8,6 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Typography from '@mui/material/Typography';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import GradientHeader from "./gradient-headline";
 
 const theme = createTheme({
     typography: {
@@ -47,27 +46,27 @@ const theme = createTheme({
     },
   });
 
-export default function ItemCard({ product }){
+export default function ShopCard({ shop }){
     return(
         <ThemeProvider theme={theme}>
-            <Link href={`/products/${product?.id}`} passHref>
-                <CardActionArea style={{ borderRadius: 20 }}>
-                    <Card sx={{maxHeight: 400, width: 265, padding: 1, borderRadius: 5}}>
-                        <CardMedia
-                            component="img"
-                            image={`https://samahan-cloud.addu.edu.ph/assets/${product?.images[0]?.directus_files_id?.filename_disk}?width=250&height=250`}
-                            alt="item preview"
-                            style={{ borderRadius: 20 }}
-                        />
-                        <CardContent>
-                            <GradientHeader variant="h3" text={product?.price !== 0 ? `${product?.price_currency}${product?.price}` : 'Inquire'} component="div"/>
-                            <Typography variant="body_italic">
-                                {product?.name}
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </CardActionArea>
-            </Link>
+            <CardActionArea style={{ borderRadius: 20 }}>
+                <Card 
+                    sx={{minHeight: 375, width: 265, padding: 1, borderRadius: 5}}
+                    onClick={() => {window.open(shop.url, '_blank');}}
+                    >
+                    <CardMedia
+                        component="img"
+                        image={`https://samahan-cloud.addu.edu.ph/assets/${shop.logo?.filename_disk}?width=250&height=250`}
+                        alt="icon preview"
+                        style={{ borderRadius: 20 }}
+                    />
+                    <CardContent>
+                        <Typography variant="h6">
+                            {shop.name}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </CardActionArea>
         </ThemeProvider>
     )
 }

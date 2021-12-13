@@ -2,17 +2,20 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { AppBar, Toolbar, Drawer, InputBase, Box, Typography, IconButton, Button, TextField } from '@mui/material';
-import { InputAdornment } from '@mui/material';
+
+import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import InputBase from '@mui/material/InputBase';
+import IconButton from '@mui/material/IconButton';
+
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Link as MUILink } from '@mui/material';
 import Logo from '../public/logo.png';
 import NavDrawer from './nav-drawer';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const theme = createTheme({
+let theme = createTheme({
     typography: {
         fontFamily: [
             'Poppins'
@@ -27,7 +30,7 @@ const theme = createTheme({
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: 20,
-    backgroundColor: alpha(theme.palette.common.black, 0.10),
+    backgroundColor: alpha(theme.palette.common.black, 0.05),
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('lg')]:{
@@ -54,7 +57,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
-      color: '#FF8A25',
+      color: '#0078ff',
       [theme.breakpoints.up('lg')]: {
         width: '70vw',
         '&:focus': {
@@ -64,9 +67,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-const handleSearch = () => {
-
-}
+theme = responsiveFontSizes(theme)
 
 export default function MobileHeader(){
     const router = useRouter();
@@ -83,15 +84,15 @@ export default function MobileHeader(){
                             color="inherit"
                             aria-label="home"
                         >
-                            <Image src={Logo} alt="logo" layout="intrinsic"/>
+                            <Image src={Logo} alt="logo" width="96" height="124" layout="intrinsic"/>
                         </IconButton>
                     </Link>
                     <Search>
                         <SearchIconWrapper>
-                            <SearchIcon sx={{color: '#FF8A25'}} />
+                            <SearchIcon sx={{color: '#0078ff'}} />
                         </SearchIconWrapper>
                             <StyledInputBase
-                            placeholder="Search for items…"
+                            placeholder="Search for products…"
                             inputProps={{ 'aria-label': 'search'}}
                             onChange={(e) => setSearch(e.target.value)}
                             onKeyDown={(e) => {

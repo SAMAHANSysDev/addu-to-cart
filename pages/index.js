@@ -1,52 +1,40 @@
-import Head from 'next/head'
+import { gql } from "@apollo/client";
+import client from "../utils/apollo-client";
+import { NextSeo } from 'next-seo';
+
 import Image from 'next/image'
-import Link from 'next/link';
 import SeeMoreButton from '../components/see-more-button';
 import GradientHeader from '../components/gradient-headline';
-import styles from '../styles/Home.module.css'
-import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { Box, Typography, Grid, Paper } from '@mui/material';
+
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+
 import ItemCard from '../components/item-card';
 import React from 'react';
 import PosterBoy from '../public/promo-boy.png'
 
-let theme = createTheme({
-  typography: {
-      fontFamily: [
-          'Poppins'
-      ].join(','),
-      h1: {
-          fontWeight: 800,
-          fontSize: 64,
-      },
-      h2: {
-          fontWeight: 800,
-          fontSize: 48,
-      },
-      h3: {
-          fontWeight: 700,
-          fontSize: 28,
-      },
-      h4: {
-        fontWeight: 500,
-        fontSize: 24,
-      },
-      h5_bold: {
-          fontWeight: 500,
-          fontSize: 18,
-      },
-      h5: {
-          fontWeight: 400,
-          fontSize: 18,
-      }
-  },
-});
+export default function Home({ categories }) {
 
-theme = responsiveFontSizes(theme);
-
-export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
+    <>
+      <NextSeo
+        title="AdDU-To-Cart | A marketplace for Atenean Entrepreneurs."
+        description="Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs."
+        canonical="https://addutocart.addu.edu.ph"
+        openGraph={{
+          type: 'website',
+          url: 'https://addutocart.addu.edu.ph',
+          title: 'AdDU-To-Cart | A marketplace for Atenean Entrepreneurs.',
+          description: 'Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs.',
+          images: [
+            {
+              url: 'https://addutocart.addu.edu.ph/atc-800x600.jpg',
+            },
+          ],
+          site_name: 'AdDU To Cart',
+        }}
+      />
       <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5", width: "100%"}}>
         <Box 
           sx={{
@@ -54,7 +42,10 @@ export default function Home() {
             position: "relative", 
             width: "80%",
             minHeight: "400px", 
-            background: "linear-gradient(to right, #FF8A25, #FF4359)",
+            //background: "linear-gradient(to right, #00ecc2, #0078ff)",
+            backgroundImage: "url(/cover.jpeg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
             borderRadius: "30px"
             }}>
             <Box
@@ -62,136 +53,70 @@ export default function Home() {
                 padding: 6,
                 mx: 2,
               }}>
+              {/* 
               <Typography variant="h1" color="common.white">11.11 SALE!</Typography>
               <Typography variant="h5" color="common.white">COMING SOON (PUBMATS HERE)</Typography>
               <div className="poster-boy">
                 <Image src={PosterBoy} alt="promo-boy" layout="intrinsic"/>
               </div>
+              */}
             </Box>
         </Box>
-        <Box
-          sx={{
-            margin: "auto",
-            marginTop: 2,
-            width: "80%"
-          }}>
-          <Box>
-              <GradientHeader variant="h2" text="FOOD"/>
-              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                <Grid item>
-                  <ItemCard/>
+        { categories.map((category) => (
+          <Box
+            key={category.id}
+            sx={{
+              margin: "auto",
+              marginTop: 2,
+              width: "80%"
+            }}>
+            <Box>
+                <GradientHeader variant="h2" text={category.name.toUpperCase()} />
+                <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
+                  { category.products.map(({ products_id: product }) => product?.id ? (
+                    <Grid key={product.id} item>
+                      <ItemCard product={product} />
+                    </Grid>
+                  ) : null) }
                 </Grid>
-                <Grid item>
-                  <ItemCard/>
+                <Grid container justifyContent="flex-end" marginTop={3}>
+                  <SeeMoreButton href={`/categories/${category.id}`}/>
                 </Grid>
-                <Grid item>
-                  <ItemCard/>
-                </Grid>
-                <Grid item>
-                  <ItemCard/>
-                </Grid>
-                <Grid item>
-                  <ItemCard/>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="flex-end" marginTop={3}>
-                <SeeMoreButton href="/food"/>
-              </Grid>
+            </Box>
           </Box>
-          <Box>
-              <GradientHeader variant="h2" text="CLOTHING"/>
-              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="flex-end" marginTop={3} >
-                <SeeMoreButton href="/clothing"/>
-              </Grid>
-          </Box>
-          <Box>
-              <GradientHeader variant="h2" text="HEALTH"/>
-              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
-                <SeeMoreButton href="/health"/>
-              </Grid>
-          </Box>
-          <Box>
-              <GradientHeader variant="h2" text="HOME LIVING"/>
-              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
-                <SeeMoreButton href="/home-living"/>
-              </Grid>
-          </Box>
-          <Box>
-              <GradientHeader variant="h2" text="SERVICES"/>
-              <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-                <Grid item>
-                  <Paper elevation={1} sx={{height: 400, width: 265}}>Hello!</Paper>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="flex-end" marginTop={3} marginBottom={2}>
-                <SeeMoreButton href="/services"/>
-              </Grid>
-          </Box>
-        </Box>
+        )) }
       </Box>
-    </ThemeProvider>
+    </>
   )
+}
+
+export async function getServerSideProps() {
+  const { data } = await client.query({
+    query: gql`
+      query Categories {
+        categories {
+          id
+          name
+          products(limit: 6) {
+            products_id {
+              id
+              name
+              price
+              price_currency
+              images {
+                directus_files_id(limit: 1) {
+                  filename_disk
+                }
+              }
+            }
+          }
+        }
+      }
+    `,
+  });
+  return {
+    props: {
+      categories: data.categories
+    },
+  };
 }

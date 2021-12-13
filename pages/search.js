@@ -1,83 +1,78 @@
+import { gql } from "@apollo/client";
+import client from "../utils/apollo-client";
+import { NextSeo } from 'next-seo';
+
 import React from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link';
-import GradientHeader from '../components/gradient-headline';
-import styles from '../styles/Home.module.css'
-import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
-import { Container, Box, Typography, Grid, Paper, IconButton, Button} from '@mui/material';
-import ItemCard from '../components/item-card';
-import { useRouter } from 'next/router';
 
-let theme = createTheme({
-    typography: {
-        fontFamily: [
-            'Poppins'
-        ].join(','),
-        h1: {
-            fontWeight: 800,
-            fontSize: 64,
-        },
-        h2: {
-            fontWeight: 800,
-            fontSize: 48,
-        },
-        h3: {
-            fontWeight: 700,
-            fontSize: 28,
-        },
-        h4: {
-          fontWeight: 500,
-          fontSize: 24,
-        },
-        h5_bold: {
-            fontWeight: 500,
-            fontSize: 18,
-        },
-        h5: {
-            fontWeight: 400,
-            fontSize: 18,
-        }
-    },
-  });
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
-theme = responsiveFontSizes(theme);
+import SearchCard from '../components/search-card';
 
-export default function Search(){
-    const router = useRouter();
-    console.log(router.query.query);
-
+export default function Search({ search, query }){
     return(
-        <ThemeProvider theme={theme}>
-            <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5", width: "100%"}}>
-                <Box
-                sx={{
-                    margin: "auto",
-                    marginTop: 2,
-                    width: "80%"
-                }}>
-                    <Box>
-                        <GradientHeader variant="h2" text="FOOD"/>
-                        <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
-                            <Grid item>
-                            <ItemCard/>
-                            </Grid>
-                            <Grid item>
-                            <ItemCard/>
-                            </Grid>
-                            <Grid item>
-                            <ItemCard/>
-                            </Grid>
-                            <Grid item>
-                            <ItemCard/>
-                            </Grid>
-                            <Grid item>
-                            <ItemCard/>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Box>
+      <>
+        <NextSeo
+          title={`Search results for ${query} | AdDU-To-Cart`}
+          description="Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs."
+          canonical={`https://addutocart.addu.edu.ph/search?query=${query}`}
+          openGraph={{
+            type: 'website',
+            url: `https://addutocart.addu.edu.ph/search?query=${query}`,
+            title: `Search results for ${query} | AdDU-To-Cart`,
+            description: 'Discover AdDU marketplace. AdDU-To-Cart now! A Business Website Initiative for Atenean Entrepreneurs.',
+            images: [
+              {
+                url: 'https://addutocart.addu.edu.ph/atc-800x600.jpg',
+              },
+            ],
+            site_name: 'AdDU To Cart',
+          }}
+        />
+        <Box sx={{marginTop: 2, padding: 5, backgroundColor: "#F5F5F5", width: "100%"}}>
+          <Box
+            sx={{
+                margin: "auto",
+                marginTop: 2,
+                width: "80%"
+            }}>
+            <Box>
+                <Grid container spacing={2} sx={{margin: "auto"}} justifyContent="center">
+                    { search.map((product) => product?.id ? (
+                      <Grid key={product.id} item>
+                          <SearchCard product={product} />
+                      </Grid>
+                    ) : null) }
+                </Grid>
             </Box>
-        </ThemeProvider>
+          </Box>
+        </Box>
+      </>
     )
 }
+
+export async function getServerSideProps({ query }) {
+    const { data } = await client.query({
+      query: gql`
+        query Search {
+          products(search: "${query.query}") {
+            id
+            name
+            price
+            price_currency
+            images {
+              directus_files_id {
+                filename_disk
+              }
+            }
+          }
+        }
+      `,
+    });
+    return {
+      props: {
+        search: data.products,
+        query: query.query
+      },
+    };
+  }
