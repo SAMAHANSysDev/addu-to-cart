@@ -4,6 +4,8 @@ import { typography } from '@mui/system';
 import React from 'react'
 import ReactDOM from 'react-dom'
 import GradientHeader from '../components/gradient-headline'
+import Image from 'next/image';
+
 
 import { styled, alpha, createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import { AppBar, Toolbar, Box, Typography, Grid, Paper, IconButton, Button, TextField } from '@mui/material';
@@ -46,13 +48,13 @@ export default function aboutus(){
     return(
         <ThemeProvider theme={theme}>
     <Box sx = {{marginLeft: 2, padding: 5}}>
-    <box>
-              <div><img src = '../public/two-combined.png' alt="addutocart" layout="intrinsic"></img></div>
-          </box>
+    <Box>
+              <div><Image src= "/two-combined.png" alt="addutocart" width={500} height={500} layout="intrinsic"/></div>
+          </Box>
          <Box marginLeft={100}>
           <GradientHeader variant="h2" text="AdDU to Cart"/>
          
-         <typography>A business website initiative by the office of the samahan treasurer</typography>
+         <Typography>A business website initiative by the office of the samahan treasurer</Typography>
           </Box>
 
           <Grid container spacing={2} maxWidth={"sm"} sx={{marginLeft: "10px", marginTop: "150px" }} justifyContent="left">
@@ -60,22 +62,22 @@ export default function aboutus(){
 
           <GradientHeader variant="h2" text="About us"/>
           
-         <typography> AdDU To Cart is an initiative by the Office of the SAMAHAN Treasurer under the Samahan ng mga Mag-aaral ng Pamatansang Ateneo de Davao. The initiative is inspired by the rise and growth of many small and student-owned businesses over the course of the COVID-19 pandemic for them to cope with financial difficulties and drive income despite the lockdowns.</typography>
+         <Typography> AdDU To Cart is an initiative by the Office of the SAMAHAN Treasurer under the Samahan ng mga Mag-aaral ng Pamatansang Ateneo de Davao. The initiative is inspired by the rise and growth of many small and student-owned businesses over the course of the COVID-19 pandemic for them to cope with financial difficulties and drive income despite the lockdowns.</Typography>
           <br />
           <br />
-          <typography>AdDU To Cart, through its website and events, aims to provide support for Atenean owned small and local businesses and to widen their audience within the university. The website will help Atenean consumers have a catalogue of Atenean businesses for an easier and faster shopping experience. </typography>
+          <Typography>AdDU To Cart, through its website and events, aims to provide support for Atenean owned small and local businesses and to widen their audience within the university. The website will help Atenean consumers have a catalogue of Atenean businesses for an easier and faster shopping experience. </Typography>
           <br />
           <br />
-         <typography>This December 2021, AdDU To Cart will also donate to our beneficiary community, Amihan sa Dahican, which offers small services and facilities to support 40 Amihan youth grade school to college and to promote turtle conservation and its sanctuary. With the proceeds from AdDU To Cart 2021, SAMAHAN aims to provide school supplies to support the continuing education of the youth in their community.</typography>
+         <Typography>This December 2021, AdDU To Cart will also donate to our beneficiary community, Amihan sa Dahican, which offers small services and facilities to support 40 Amihan youth grade school to college and to promote turtle conservation and its sanctuary. With the proceeds from AdDU To Cart 2021, SAMAHAN aims to provide school supplies to support the continuing education of the youth in their community.</Typography>
          <br />
           <br />
           </Grid>
           <Grid container spacing={2} maxWidth={"sm"} sx={{marginLeft: "10px"}} justifyContent="left">
-         <typography>Twitter: @addutocart2021</typography>
-    <typography>Facebook: ADDU To Cart</typography>
-    <typography>Instagram: </typography>
-    <typography>Email: samahanaddutocart@gmail.com
-</typography>
+         <Typography>Twitter: @addutocart2021</Typography>
+    <Typography>Facebook: ADDU To Cart</Typography>
+    <Typography>Instagram: </Typography>
+    <Typography>Email: samahanaddutocart@gmail.com
+</Typography>
 
 <br />
 <br />
@@ -84,7 +86,7 @@ export default function aboutus(){
           <Box>
          <center> <GradientHeader variant="h2" text="FAQS"/></center>
           <h1>What is Addu To Cart?</h1>
-         <typography>AdDU To Cart is a business website initiative aiming to give support to Ateneans owned local businesses.The website will serve as a catalogue of the businesses along with all the products and services that they are offering.</typography>
+         <Typography>AdDU To Cart is a business website initiative aiming to give support to Ateneans owned local businesses.The website will serve as a catalogue of the businesses along with all the products and services that they are offering.</Typography>
          <br />
          <h1>How do i order?</h1>
          

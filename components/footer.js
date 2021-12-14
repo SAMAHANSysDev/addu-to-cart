@@ -103,16 +103,31 @@ function Footer(){
                         ) : null }
                         <Grid item lg={3} paddingRight={2}>
                             <Grid item style={{ marginBottom: '1rem' }}>
-                                <Typography variant="h5" color="common.black">Info</Typography>
+                                <Typography variant="h5" color="common.black">
+                                    <Link href="/faqs" passHref>
+                                        <MUILink color="inherit" underline="hover">
+                                            Info
+                                        </MUILink>
+                                    </Link>
+                                </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6_bold" color="common.black">About Us</Typography>
+                                <Typography variant="h6_bold" color="common.black">
+                                    <Link href="/faqs" passHref>
+                                        <MUILink color="inherit" underline="hover">
+                                            About Us
+                                        </MUILink>
+                                    </Link>
+                                </Typography>
                             </Grid>
                             <Grid item>
-                                <Typography variant="h6_bold" color="common.black">FAQs</Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography variant="h6_bold" color="common.black">Policies</Typography>
+                                 <Typography variant="h6_bold" component="div" color="common.black">
+                                    <Link href="/faqs" passHref>
+                                        <MUILink color="inherit" underline="hover">
+                                            FAQs
+                                        </MUILink>
+                                    </Link>
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid item lg={3} paddingRight={7}>
@@ -120,12 +135,12 @@ function Footer(){
                                 <Typography variant="h5" color="common.black">Connect</Typography>
                             </Grid>
                             <Grid item>
-                                <a href="https://www.facebook.com/addutocart2021/" target="_blank">
+                                <a href="https://www.facebook.com/addutocart2021/" target="_blank" rel="noreferrer">
                                     <Typography variant="h6_bold" color="common.black">Facebook</Typography>
                                 </a>
                             </Grid>
                             <Grid item>
-                                <a href="https://twitter.com/addutocart2021" target="_blank">
+                                <a href="https://twitter.com/addutocart2021" target="_blank" rel="noreferrer">
                                     <Typography variant="h6_bold" color="common.black">Twitter</Typography>
                                 </a>
                             </Grid>

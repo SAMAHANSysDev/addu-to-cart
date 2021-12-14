@@ -18,7 +18,7 @@ const GradientButton = styled(Button)(({theme}) =>({
 
 export default function SeeMoreButton(props){
     return(
-        <Link href={props.href}>
+        <Link href={props.href} passHref>
             <GradientButton variant="contained">
                 <Typography variant="h5">SEE MORE</Typography>
             </GradientButton>
