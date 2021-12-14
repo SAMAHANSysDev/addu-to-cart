@@ -56,7 +56,7 @@ export default function aboutus(){
          
          <Typography>A business website initiative by the office of the samahan treasurer</Typography>
           </Box>
-
+            
           <Grid container spacing={2} maxWidth={"sm"} sx={{marginLeft: "10px", marginTop: "150px" }} justifyContent="left">
             
 
@@ -72,16 +72,17 @@ export default function aboutus(){
          <br />
           <br />
           </Grid>
-          <Grid container spacing={2} maxWidth={"sm"} sx={{marginLeft: "10px"}} justifyContent="left">
+          
+          <Grid container spacing={2} maxWidth={"sm"} sx={{marginLeft: "1px"}} justifyContent="left">
          <Typography>Twitter: @addutocart2021</Typography>
-    <Typography>Facebook: ADDU To Cart</Typography>
+    
+
+
+          </Grid>
+          <Typography>Facebook: ADDU To Cart</Typography>
     <Typography>Instagram: </Typography>
     <Typography>Email: samahanaddutocart@gmail.com
 </Typography>
-
-<br />
-<br />
-          </Grid>
 
           <Box>
          <center> <GradientHeader variant="h2" text="FAQS"/></center>
