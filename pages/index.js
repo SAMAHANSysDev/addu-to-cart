@@ -2,17 +2,14 @@ import { gql } from "@apollo/client";
 import client from "../utils/apollo-client";
 import { NextSeo } from 'next-seo';
 
-import Image from 'next/image'
 import SeeMoreButton from '../components/see-more-button';
 import GradientHeader from '../components/gradient-headline';
 
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 import ItemCard from '../components/item-card';
 import React from 'react';
-import PosterBoy from '../public/promo-boy.png'
 
 export default function Home({ categories }) {
 

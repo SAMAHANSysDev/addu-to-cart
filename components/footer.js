@@ -104,11 +104,7 @@ function Footer(){
                         <Grid item lg={3} paddingRight={2}>
                             <Grid item style={{ marginBottom: '1rem' }}>
                                 <Typography variant="h5" color="common.black">
-                                    <Link href="/faqs" passHref>
-                                        <MUILink color="inherit" underline="hover">
-                                            Info
-                                        </MUILink>
-                                    </Link>
+                                    Info
                                 </Typography>
                             </Grid>
                             <Grid item>
